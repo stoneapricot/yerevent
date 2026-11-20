@@ -36,5 +36,9 @@
  {"id":"forty44","name":"Forty44","kind":"Pop-up","match":["forty44","fotry44"],"address":"16 Parpetsi St, Yerevan","lat":40.18500,"lng":44.51057,
   "about":"Bar on Parpetsi Street that hosts art openings."},
  {"id":"rambalkoshe","name":"Rambalkoshe Dilijan","kind":"Art space","match":["rambal koshe","rambalkoshe"],"address":"102 Getapnya St, Dilijan","lat":40.74005,"lng":44.84504,"far":true,
-  "about":"A house turned into a museum and art space in Dilijan, with a park and a tandoor bakery."}
+  "about":"A house turned into a museum and art space in Dilijan, with a park and a tandoor bakery."},
+ {"id":"komitas","name":"Komitas Museum-Institute","kind":"Museum","match":["komitas museum"],"address":"28 Arshakunyats Ave, Yerevan","lat":40.16241,"lng":44.50245,
+  "about":"Museum and research centre for the composer Komitas, in the Komitas Park pantheon area."},
+ {"id":"academy-fine-arts","name":"State Academy of Fine Arts of Armenia","kind":"Art school","match":["academy of fine arts"],"address":"36 Isahakyan St, Yerevan","lat":40.18942,"lng":44.51667,
+  "about":"Armenia's art academy. Its halls show student and teacher exhibitions."}
 ]
