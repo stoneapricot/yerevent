@@ -79,3 +79,24 @@ Serve the folder (`python3 -m http.server`) and open a bundle day in a
 phone-width browser (430px). In a cloud session use Playwright with
 `executablePath: '/opt/pw-browsers/chromium'`; the Leaflet map won't load
 there, which is expected.
+
+## Exhibitions ("On view" page)
+
+`?p=exhibitions` (redirect folder `exhibitions/`) lists every event of type
+`exhibition` that hasn't closed: cards one by one (closing soonest first, then
+opening soon), one map with a numbered pin per place, and the places with a
+line about each. Rules, kept in the backend too:
+
+- An exhibition's `Date` is its **opening day**; the sheet's `until` column is
+  its **closing day** (yyyy-mm-dd). The calendar shows it once, on the opening
+  day; the page and each day's popup ("N exhibitions on view this day") use
+  the whole run. No `until`: listed for 30 days after opening, marked
+  "closing date not announced".
+- Places live in `venues.json` (`name`, `kind`, `match` keywords in lowercase,
+  `address`, `lat`/`lng`, `about`, optional `far`). Add a venue there when a
+  new gallery or museum turns up; any event at a known venue shows the venue
+  box in its details. Don't invent opening hours: the "Directions & opening
+  hours" link goes to Google Maps.
+- Look: cream "gallery wall" (`--cream`) with framed pictures, so it reads
+  apart from the sunset festival guides.
+

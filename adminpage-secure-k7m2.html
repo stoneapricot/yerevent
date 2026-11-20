@@ -351,14 +351,14 @@ a{color:var(--gold);}
 const API_URL = 'https://script.google.com/macros/s/AKfycbyCsVTwsBMazq5vn5ZOzE4BEmW2QdiGbyjUtIXPgrmevkUGd-fN1etI2GHeGC0cf3UvsA/exec';
 const PW_KEY = 'yerevent_admin_pw';
 /* Bump both of these on every edit, so the page always says which version it is. */
-const APP_VERSION = 'v4.1';
-const APP_DATE = '12 Nov 2026';
-const TYPES = ['festival','concert','nightlife','social','dining','educational','art','film','sports','activities','expo','market'];
+const APP_VERSION = 'v4.2';
+const APP_DATE = '18 Nov 2026';
+const TYPES = ['festival','concert','nightlife','social','dining','educational','art','exhibition','film','sports','activities','expo','market'];
 const CITIES = ['Yerevan','Gyumri','Vanadzor','Meghri','Kapan','Near Yerevan','Other'];
-const TYPE_COLOR = {festival:'#ff6b6b',concert:'#75FF73',nightlife:'#f472b6',social:'#fb923c',dining:'#facc15',educational:'#60a5fa',art:'#a78bfa',film:'#2dd4bf',sports:'#38bdf8',activities:'#d9f99d',expo:'#c084fc',market:'#fda4af'};
+const TYPE_COLOR = {festival:'#ff6b6b',concert:'#75FF73',nightlife:'#f472b6',social:'#fb923c',dining:'#facc15',educational:'#60a5fa',art:'#a78bfa',exhibition:'#f5e6c8',film:'#2dd4bf',sports:'#38bdf8',activities:'#d9f99d',expo:'#c084fc',market:'#fda4af'};
 /* the website's type colours: coloured text on a faint tint, a solid fill when
    a filter is on (dark or white text, whichever reads better on that colour) */
-const TYPE_DARK_TEXT=new Set(['concert','social','dining','educational','film','sports','activities','market']);
+const TYPE_DARK_TEXT=new Set(['exhibition','concert','social','dining','educational','film','sports','activities','market']);
 function typeStyle(t,on){
   const c=TYPE_COLOR[String(t||'').toLowerCase()]||'#8b93a7';
   return on?`background:${c};border-color:${c};color:${TYPE_DARK_TEXT.has(t)?'#0b0d12':'#fff'}`
@@ -539,6 +539,11 @@ function fmtDate(raw){
   if(/^\d{4}-\d{2}-\d{2}T/.test(s)){const d=new Date(new Date(s).getTime()+12*60*60*1000);return MONTHS[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear();}
   return s;
 }
+/* an exhibition's closing day, kept as yyyy-mm-dd, read as "January 17, 2027" */
+function fmtUntil(raw){
+  const m=String(raw||'').match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  return m?MONTHS[+m[2]-1]+' '+(+m[3])+', '+m[1]:fmtDate(raw);
+}
 function fmtTime(raw){
   if(!raw) return '';
   const s=String(raw);
@@ -624,7 +629,7 @@ function cardHTML(ev, kind){
     (kind!=='live'&&ev.added?`<span class="tag" style="color:#9fd8ff;background:#60a5fa1c;text-transform:none">🆕 added ${esc(ago(ev.added))}</span>`:'')+
     (kind!=='live'&&ev.flag==='lineup'?`<span class="tag" style="color:#60a5fa;background:#60a5fa22">📋 several events — check the pictures</span>`:'')+
     (kind!=='live'&&festName(ev)?`<span class="tag" style="color:#ff8a7a;background:#F04A5A22;text-transform:none">✦ ${esc(festName(ev))}</span>`:'');
-  const meta=[fmtDate(ev.date), fmtTime(ev.time), ev.place?('📍 '+esc(ev.place)):''].filter(Boolean).join(' · ');
+  const meta=[fmtDate(ev.date)+(ev.until?' → until '+fmtUntil(ev.until):''), fmtTime(ev.time), ev.place?('📍 '+esc(ev.place)):''].filter(Boolean).join(' · ');
   const desc = descHTML(ev);
   const approve=`<button class="btn green small" onclick="runBtn(this,()=>approveEvent(${ev.row},null),'Publishing…')">✅ Approve &amp; publish</button>
        <button class="btn ghost small" onclick="editPending(${ev.row})">✏️ Edit</button>`;
@@ -830,6 +835,7 @@ function formHTML(ev, submitLabel, submitFn, extraBtn){
   return `<div class="form">
     <label>Name</label><input id="f-name" value="${esc(ev.name)}">
     <label>Date (e.g. July 15, 2026)</label><input id="f-date" value="${esc(fmtDate(ev.date))}">
+    <label>Until — last day, for exhibitions (e.g. January 17, 2027; leave empty otherwise)</label><input id="f-until" value="${esc(ev.until?fmtUntil(ev.until):'')}" placeholder="one-day event">
     <label>Time (e.g. 9 PM or 8 PM – 2 AM)</label><input id="f-time" value="${esc(fmtTime(ev.time))}">
     <label>City</label><select id="f-city">${opts(CITIES, ev.city||'Yerevan')}</select>
     <label>Place / venue</label><input id="f-place" value="${esc(ev.place)}">
@@ -850,7 +856,7 @@ function formHTML(ev, submitLabel, submitFn, extraBtn){
 }
 function readForm(){
   return {name:v('f-name'),date:v('f-date'),time:v('f-time'),city:v('f-city'),place:v('f-place'),
-          type:v('f-type'),price:v('f-price'),link:v('f-link'),description:v('f-desc'),
+          type:v('f-type'),price:v('f-price'),link:v('f-link'),description:v('f-desc'),until:v('f-until'),
           lat:v('f-lat'),lng:v('f-lng')};
   function v(id){const el=document.getElementById(id);return el?el.value.trim():'';}
 }

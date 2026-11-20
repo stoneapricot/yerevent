@@ -417,6 +417,78 @@ footer{background:#1f0d15;color:rgba(252,204,132,0.45);margin-top:0;font-family:
 .stage-actions a:hover,.stage-actions button:hover{border-color:var(--apricot);color:var(--apricot);}
 .guide-foot{font-size:0.74rem;color:var(--text-muted);margin-top:22px;line-height:1.6;}
 .guide-foot a{color:var(--text-soft);}
+/* ── ON VIEW: exhibitions in museums, galleries and pop-ups, one by one ──
+   A gallery-wall look (cream, framed) so it reads apart from the sunset
+   festival guides, in the same type and colours. */
+.pill[data-type="exhibition"]{--c:#f5e6c8;--bg:rgba(245,230,200,0.13);--bd:rgba(245,230,200,0.3);}
+.ex-banner{display:flex;align-items:center;gap:16px;width:100%;text-align:left;cursor:pointer;margin-bottom:16px;padding:16px 20px;border-radius:var(--radius);border:none;font-family:'Outfit',sans-serif;background:var(--cream);color:#1C0B12;box-shadow:0 8px 30px rgba(0,0,0,0.3),inset 0 0 0 5px #fff8ee,inset 0 0 0 6px rgba(28,11,18,0.16);transition:transform .15s;}
+.ex-banner:hover{transform:translateY(-2px);}
+.ex-frames{display:flex;align-items:flex-start;gap:6px;flex-shrink:0;}
+.ex-frames span{display:block;width:30px;height:40px;border:3px solid #1C0B12;border-radius:2px;background:var(--sunset);box-shadow:inset 0 0 0 3px #fff8ee;}
+.ex-frames span:nth-child(2){width:24px;height:30px;margin-top:6px;background:linear-gradient(160deg,#7A1E5C,#F04A5A);}
+.ex-frames span:nth-child(3){width:20px;height:24px;margin-top:2px;background:linear-gradient(160deg,#FFB15C,#F4EADF);}
+.ex-banner-when{font-size:0.66rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;opacity:0.7;}
+.ex-banner-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:1.7rem;line-height:1.05;color:#7A1E5C;}
+.ex-banner-sub{font-size:0.8rem;font-weight:500;margin-top:3px;}
+.ex-banner-go{margin-left:auto;background:#1C0B12;color:var(--cream);font-weight:600;font-size:0.8rem;padding:9px 16px;border-radius:100px;white-space:nowrap;}
+.ex-hero{background:var(--cream);color:#1C0B12;padding:34px 28px 28px;position:relative;overflow:hidden;box-shadow:inset 0 -1px 0 rgba(28,11,18,0.1);}
+.ex-hero svg{position:absolute;right:22px;top:50%;transform:translateY(-50%);width:230px;max-width:38%;}
+.ex-hero .guide-hero-kicker{color:#7A1E5C;}
+.ex-hero h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:clamp(2.4rem,7vw,3.8rem);line-height:1;margin:6px 0 10px;color:#7A1E5C;}
+.ex-hero p{max-width:520px;font-size:0.95rem;line-height:1.55;font-weight:500;position:relative;}
+.ex-filter button.active{background:var(--pome)!important;border-color:var(--pome)!important;color:#fff!important;}
+.ex-filter button[data-f="free"].active{background:#22A86E!important;border-color:#22A86E!important;}
+.ex-list{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;}
+.ex-card{min-width:0;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:15px 16px 14px;cursor:pointer;transition:border-color .2s,transform .15s,box-shadow .2s;display:flex;flex-direction:column;gap:6px;text-align:left;}
+.ex-card:hover{border-color:rgba(245,230,200,0.45);transform:translateY(-2px);}
+.ex-card.flash{border-color:var(--apricot);box-shadow:0 0 0 3px rgba(255,177,92,0.25);}
+.ex-card-top{display:flex;align-items:center;gap:8px;min-width:0;}
+.ex-venue{flex:1;min-width:0;font-size:0.72rem;color:var(--text-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ex-venue b{font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:0.62rem;color:var(--apricot);margin-right:4px;}
+.ex-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:1.32rem;line-height:1.12;color:var(--text);}
+.ex-dates{font-size:0.78rem;font-weight:600;color:var(--gold);display:flex;flex-wrap:wrap;align-items:center;gap:6px;}
+.ex-run{height:4px;border-radius:4px;background:rgba(245,230,200,0.12);overflow:hidden;}
+.ex-run i{display:block;height:100%;border-radius:4px;background:var(--sunset);}
+.ex-blurb{font-size:0.8rem;line-height:1.5;color:rgba(253,245,236,0.72);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.ex-badge{flex-shrink:0;font-size:0.64rem;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;padding:3px 9px;border-radius:100px;white-space:nowrap;}
+.ex-badge.closing{background:var(--pome);color:#fff;}
+.ex-badge.last{background:#fff;color:var(--pome);}
+.ex-badge.on{background:rgba(61,220,151,0.14);color:#5BE3A6;border:1px solid rgba(61,220,151,0.4);}
+.ex-badge.opening{border:1px solid var(--apricot);color:var(--apricot);}
+.ex-badge.open{border:1px dashed rgba(245,230,200,0.5);color:var(--cream);}
+.ex-empty{background:var(--surface);border:1px dashed var(--border);border-radius:var(--radius);padding:22px;text-align:center;color:var(--text-muted);font-size:0.86rem;}
+#exMap{height:380px;border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;}
+#exMap.labels-on .guide-pin-label{display:block;}
+.ex-pin{background:var(--cream);border-radius:4px;box-shadow:0 0 0 3px rgba(245,230,200,0.3),0 3px 12px rgba(0,0,0,.6);}
+.venue-box{margin-top:18px;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--cream);border-radius:12px;padding:14px 16px;}
+.venue-kind{font-size:0.62rem;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--apricot);}
+.venue-name{font-size:1rem;font-weight:600;color:var(--text);margin:2px 0 6px;}
+.venue-box p{font-size:0.84rem;line-height:1.55;color:rgba(253,245,236,0.78);}
+.venue-addr{font-size:0.8rem;color:var(--text-soft);margin-top:8px;}
+.venue-also{margin-top:12px;border-top:1px solid rgba(252,204,132,0.1);padding-top:10px;}
+.venue-also b{display:block;font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;}
+.venue-also button{display:block;width:100%;text-align:left;background:none;border:none;padding:5px 0;cursor:pointer;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;font-weight:600;color:var(--cream);}
+.venue-also button:hover{color:var(--apricot);}
+.venue-also small{font-family:'Outfit',sans-serif;font-style:normal;font-size:0.7rem;font-weight:500;color:var(--text-muted);margin-left:6px;}
+.detail-run{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:2px 0 4px;}
+.day-ex-link{display:flex;align-items:center;gap:8px;width:100%;margin-bottom:10px;padding:10px 12px;border-radius:10px;border:none;cursor:pointer;background:var(--cream);color:#1C0B12;font-family:'Outfit',sans-serif;font-size:0.8rem;text-align:left;}
+.day-ex-link b{font-weight:700;}
+.day-ex-link span{margin-left:auto;font-weight:700;color:#7A1E5C;white-space:nowrap;}
+.ex-venues{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;}
+.ex-venues .venue-box{margin-top:0;}
+.ex-venues .stage-head{margin-bottom:4px;}
+@media(max-width:768px){
+  .ex-banner{padding:14px 16px;gap:12px;}
+  .ex-banner-title{font-size:1.35rem;}
+  .ex-banner-go{display:none;}
+  .ex-frames span{width:24px;height:32px;}
+  .ex-frames span:nth-child(2){width:20px;height:26px;}
+  .ex-frames span:nth-child(3){display:none;}
+  .ex-hero{padding:24px 16px 20px;}
+  .ex-hero svg{display:none;}
+  .ex-list,.ex-venues{grid-template-columns:minmax(0,1fr);}
+  #exMap{height:300px;}
+}
 @media(max-width:768px){
   .guide-banner{padding:14px 16px;gap:10px;}
   .guide-banner-title{font-size:1.35rem;}
@@ -496,6 +568,7 @@ footer{background:#1f0d15;color:rgba(252,204,132,0.45);margin-top:0;font-family:
 
 <div class="wrapper">
   <div id="guideBanner"></div>
+  <div id="exBanner"></div>
   <div class="filters-section">
     <div class="filters-row">
       <div class="filter-group">
@@ -509,6 +582,7 @@ footer{background:#1f0d15;color:rgba(252,204,132,0.45);margin-top:0;font-family:
           <button class="pill" data-group="type" data-type="dining"      data-value="dining">🍽️ Dining</button>
           <button class="pill" data-group="type" data-type="educational" data-value="educational">📚 Educational</button>
           <button class="pill" data-group="type" data-type="art"         data-value="art">🎨 Art</button>
+          <button class="pill" data-group="type" data-type="exhibition"  data-value="exhibition">🖼 Exhibition</button>
           <button class="pill" data-group="type" data-type="film"        data-value="film">🎬 Film</button>
           <button class="pill" data-group="type" data-type="sports"      data-value="sports">⚽ Sports</button>
           <button class="pill" data-group="type" data-type="activities"  data-value="activities">🏃 Activities</button>
@@ -548,6 +622,7 @@ footer{background:#1f0d15;color:rgba(252,204,132,0.45);margin-top:0;font-family:
     <div class="view-tabs">
       <button class="view-tab active" id="tabCalendar" onclick="switchView('calendar')">📅 Calendar</button>
       <button class="view-tab" id="tabList" onclick="switchView('list')">☰ List</button>
+      <button class="view-tab" id="tabEx" onclick="openExhibitions()">🖼 On view</button>
     </div>
     <div id="resultCount"></div>
   </div>
@@ -625,6 +700,19 @@ footer{background:#1f0d15;color:rgba(252,204,132,0.45);margin-top:0;font-family:
   </div>
 </div>
 
+<div class="overlay guide-overlay" id="exOverlay">
+  <div class="modal guide-modal">
+    <div class="modal-header">
+      <div class="modal-header-left"><span class="modal-title">🖼 On view</span></div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <button class="btn-back" onclick="shareExhibitions()">↗ Share</button>
+        <button class="modal-close" onclick="closeExhibitions()">&times;</button>
+      </div>
+    </div>
+    <div class="guide-body" id="exBody"></div>
+  </div>
+</div>
+
 <footer>
   <div class="footer-inner">
     <div class="footer-blurb-section">
@@ -680,7 +768,7 @@ const TYPE_STYLE={
   festival:{color:'#ff6b6b',bg:'rgba(255,107,107,0.15)'},concert:{color:'#75FF73',bg:'rgba(117,255,115,0.15)'},
   nightlife:{color:'#f472b6',bg:'rgba(244,114,182,0.15)'},social:{color:'#fb923c',bg:'rgba(251,146,60,0.15)'},
   dining:{color:'#facc15',bg:'rgba(250,204,21,0.15)'},educational:{color:'#60a5fa',bg:'rgba(96,165,250,0.15)'},
-  art:{color:'#a78bfa',bg:'rgba(167,139,250,0.15)'},film:{color:'#2dd4bf',bg:'rgba(45,212,191,0.15)'},
+  art:{color:'#a78bfa',bg:'rgba(167,139,250,0.15)'},exhibition:{color:'#f5e6c8',bg:'rgba(245,230,200,0.13)'},film:{color:'#2dd4bf',bg:'rgba(45,212,191,0.15)'},
   sports:{color:'#38bdf8',bg:'rgba(56,189,248,0.15)'},activities:{color:'#d9f99d',bg:'rgba(217,249,157,0.15)'},
   expo:{color:'#c084fc',bg:'rgba(192,132,252,0.15)'},market:{color:'#fda4af',bg:'rgba(253,164,175,0.15)'},
 };
@@ -740,6 +828,7 @@ function normaliseEvent(raw){
     location:raw['Place']||'',type:(raw['Type']||'').toLowerCase(),price:formatPrice(raw['Price']),
     link:raw['Link']||'',description:raw['Description']||'',
     image:raw['image']||raw['Image']||'',
+    until:parseSheetDate(raw['until']||raw['Until']||''),   /* an exhibition's closing day */
     lat:isNaN(lat)?null:lat,lng:isNaN(lng)?null:lng};
 }
 /* ---------- one address per event ----------
@@ -770,6 +859,7 @@ function setUrlForEvent(ev){
 function clearEventUrl(){
   /* closing an event opened from a guide lands back on the guide's address */
   if(openGuideSlug){try{history.pushState({g:openGuideSlug},'',guideUrl(openGuideSlug));}catch(_){}return;}
+  if(exOpen){try{history.pushState({p:'exhibitions'},'',exUrl());}catch(_){}return;}
   try{if(location.search)history.pushState({},'',location.pathname);}catch(_){}
 }
 let _wantSlug=new URLSearchParams(location.search).get('e')||'';
@@ -788,11 +878,13 @@ function openPendingSlug(){
   if(openSlug(_wantSlug))_wantSlug='';
 }
 window.addEventListener('popstate',()=>{
-  const q=new URLSearchParams(location.search),slug=q.get('e'),g=q.get('g');
+  const q=new URLSearchParams(location.search),slug=q.get('e'),g=q.get('g'),pg=q.get('p');
   if(slug){openSlug(slug);return;}
   if(document.getElementById('detailOverlay').classList.contains('open')){closeDetail(true);}
   if(g)openGuide(g,true);
   else if(openGuideSlug)closeGuide(true);
+  if(pg==='exhibitions'){if(!exOpen)openExhibitions(true);}
+  else if(exOpen)closeExhibitions(true);
 });
 let _spanSeq=0;
 function expandEvents(events){
@@ -904,7 +996,7 @@ function applyFilters(){
   });
   const n=filteredEvents.length;
   document.getElementById('resultCount').textContent=`${n} event${n!==1?'s':''} found`;
-  renderCalendar();renderList();
+  renderCalendar();renderList();renderExBanner();
   openPendingSlug();   /* someone arrived on a shared link */
 }
 
@@ -921,6 +1013,7 @@ function geoCache(){
 function geoCacheSave(){try{localStorage.setItem(GEO_CACHE_KEY,JSON.stringify(_geoCache));}catch(_){}}
 function geocode(ev){
   if(ev.lat!=null&&ev.lng!=null)return Promise.resolve([ev.lat,ev.lng]);
+  const ven=venueOf(ev);if(ven&&ven.lat!=null)return Promise.resolve([ven.lat,ven.lng]);   /* venues.json knows exactly where */
   if(!ev.location)return Promise.resolve(null);
   const query=`${ev.location}${ev.city?', '+ev.city:''}, Armenia`;
   const cache=geoCache(),hit=cache[query];
@@ -1121,6 +1214,14 @@ function openDayModal(dateStr){
       (ev.guide?guideLists[ev.guide]:body).appendChild(row);rowEls[idx]=row;
     });
   }
+  /* exhibitions run for weeks, so every day says how many are on view */
+  const exDay=exhibitionsOn(dateStr);
+  if(exDay.length){
+    const b=document.createElement('button');b.className='day-ex-link';
+    b.innerHTML=`🖼 <b>${exDay.length} exhibition${exDay.length!==1?'s':''}</b> on view this day<span>See them →</span>`;
+    b.addEventListener('click',()=>{closeDayModal();openExhibitions();});
+    body.insertBefore(b,body.firstChild);
+  }
   document.getElementById('dayOverlay').classList.add('open');
   document.getElementById('dayNavPrev').style.display='flex';
   document.getElementById('dayNavNext').style.display='flex';
@@ -1168,12 +1269,13 @@ function navigateDay(direction){
   if(d.getMonth()!==calMonth||d.getFullYear()!==calYear){calMonth=d.getMonth();calYear=d.getFullYear();renderCalendar();}
   openDayModal(newStr);
 }
-function backToDayModal(){closeDetail();if(!openGuideSlug&&lastDayDateStr)openDayModal(lastDayDateStr);}
+function backToDayModal(){closeDetail();if(!openGuideSlug&&!exOpen&&lastDayDateStr)openDayModal(lastDayDateStr);}
 
 function openDetail(ev,fromUrl){
   currentEvent=ev;const[y,m,d]=ev.date.split('-');
   if(!fromUrl)setUrlForEvent(ev);   /* the address bar now points at this event */
-  const displayDate=ev.rawDate||`${MONTHS_LONG[parseInt(m)-1]} ${parseInt(d)}, ${y}`;
+  let displayDate=ev.rawDate||`${MONTHS_LONG[parseInt(m)-1]} ${parseInt(d)}, ${y}`;
+  if(ev.type==='exhibition'&&ev.until&&ev.until>ev.date){const f=ds=>{const[a,b,c]=ds.split('-');return`${MONTHS_LONG[parseInt(b)-1]} ${parseInt(c)}, ${a}`;};displayDate=`${f(ev.span?ev.span.start:ev.date)} – ${f(ev.until)}`;}
   const gmapsUrl=ev.location?`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ev.location+(ev.city?', '+ev.city:'')+', Armenia')}`:'';
   const mapHTML=ev.location
     ?`<div class="detail-map-full" id="detailMapWrap" style="cursor:pointer;" title="Open in Google Maps">
@@ -1184,8 +1286,9 @@ function openDetail(ev,fromUrl){
 
   const g=ev.guide?guideBySlug(ev.guide):null;
   const guideLink=g?`<button class="detail-guide-link" id="detailGuideBtn">✦ Part of ${esc(g.title)} · see every stage on one map →</button>`:'';
-  document.getElementById('detailBody').innerHTML=`<div class="modal-body-left">${guideLink}${ev.image?`<img class="detail-poster" src="${esc(ev.image)}" alt="" loading="lazy" onerror="this.remove()">`:''}<div class="detail-event-name">${esc(ev.name)}</div><div class="detail-tags">${tagHTML(ev.type,TYPE_STYLE)}${tagHTML(ev.price,PRICE_STYLE)}${tagHTML(ev.city,CITY_STYLE)}</div><div class="detail-meta"><div class="detail-meta-row"><span class="detail-meta-icon">📅</span> ${esc(displayDate)}</div>${ev.time?`<div class="detail-meta-row"><span class="detail-meta-icon">🕐</span> ${esc(ev.time)}</div>`:''}${ev.location?`<div class="detail-meta-row"><span class="detail-meta-icon">📍</span> <a href="${esc(gmapsUrl)}" target="_blank" rel="noopener" class="detail-address-link">${esc(ev.location)}</a></div>`:''}</div>${ev.description?`<div class="detail-desc">${esc(ev.description).replace(/\n/g,'<br>')}</div>`:''}<a href="#" class="detail-report-link" id="reportBtn">Found a mistake? Tell us</a></div><div class="modal-body-right">${mapHTML}<div class="detail-actions"><button class="btn-gcal-big" id="gcalBtn">📆 Add to Google Calendar</button><button class="btn-gcal-big btn-more" id="shareBtn">↗ Share</button>${ev.link?`<a href="${esc(ev.link)}" target="_blank" rel="noopener" class="btn-gcal-big btn-more" style="text-decoration:none;">🔗 More Info</a>`:''}</div></div>`;
+  document.getElementById('detailBody').innerHTML=`<div class="modal-body-left">${guideLink}${ev.image?`<img class="detail-poster" src="${esc(ev.image)}" alt="" loading="lazy" onerror="this.remove()">`:''}<div class="detail-event-name">${esc(ev.name)}</div><div class="detail-tags">${tagHTML(ev.type,TYPE_STYLE)}${tagHTML(ev.price,PRICE_STYLE)}${tagHTML(ev.city,CITY_STYLE)}</div><div class="detail-meta"><div class="detail-meta-row"><span class="detail-meta-icon">📅</span> ${esc(displayDate)}</div>${ev.time?`<div class="detail-meta-row"><span class="detail-meta-icon">🕐</span> ${esc(ev.time)}</div>`:''}${ev.location?`<div class="detail-meta-row"><span class="detail-meta-icon">📍</span> <a href="${esc(gmapsUrl)}" target="_blank" rel="noopener" class="detail-address-link">${esc(ev.location)}</a></div>`:''}</div>${exDetailRun(ev)}${ev.description?`<div class="detail-desc">${esc(ev.description).replace(/\n/g,'<br>')}</div>`:''}${venueBoxHTML(ev)}<a href="#" class="detail-report-link" id="reportBtn">Found a mistake? Tell us</a></div><div class="modal-body-right">${mapHTML}<div class="detail-actions"><button class="btn-gcal-big" id="gcalBtn">📆 Add to Google Calendar</button><button class="btn-gcal-big btn-more" id="shareBtn">↗ Share</button>${ev.link?`<a href="${esc(ev.link)}" target="_blank" rel="noopener" class="btn-gcal-big btn-more" style="text-decoration:none;">🔗 More Info</a>`:''}</div></div>`;
   document.getElementById('gcalBtn').addEventListener('click',()=>addToGCal(currentEvent));
+  wireVenueBox(ev);
   document.getElementById('shareBtn').addEventListener('click',()=>shareEvent(currentEvent));
   document.getElementById('reportBtn').addEventListener('click',e=>{
     e.preventDefault();
@@ -1558,6 +1661,254 @@ function shareGuide(){
 }
 document.getElementById('guideOverlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closeGuide();});
 
+/* ---------- On view: exhibitions ----------
+   An exhibition is an event of type "exhibition". Its date is the opening
+   day and its "until" the closing day, so it stays on this page for its
+   whole run while the calendar shows it once, on the day it opens. Places
+   come from venues.json: where each one is, what kind of place it is and a
+   line about it. A show with no closing day announced stays listed for
+   EX_NO_END_DAYS after it opens, marked as such. */
+const VENUES_URL='venues.json';
+const EX_NO_END_DAYS=30,EX_AHEAD_DAYS=60;
+let VENUES=[],exOpen=false,exMap=null,exFilter='all',exMarkers={};
+async function loadVenues(){
+  try{const r=await fetchWithTimeout(VENUES_URL+'?t='+Date.now(),4000);const d=await r.json();if(Array.isArray(d))VENUES=d;}
+  catch(_){VENUES=[];}
+}
+function venueOf(ev){
+  const p=String((ev&&ev.location)||'').toLowerCase();if(!p)return null;
+  return VENUES.find(v=>(v.match||[]).some(k=>p.includes(k)))||null;
+}
+function addDays(ds,n){const d=new Date(ds+'T12:00:00');d.setDate(d.getDate()+n);return toDateStr(d);}
+function daysBetween(a,b){return Math.round((new Date(b+'T12:00:00')-new Date(a+'T12:00:00'))/864e5);}
+function shortDate(ds){
+  const d=new Date(ds+'T12:00:00'),o={day:'numeric',month:'short'};
+  if(d.getFullYear()!==new Date().getFullYear())o.year='numeric';
+  return d.toLocaleDateString('en-GB',o);
+}
+/* every exhibition once (the calendar may hold a copy per day), with its run */
+function exhibitionsAll(){
+  const seen=new Set(),out=[];
+  allEvents.forEach(ev=>{
+    if(ev.type!=='exhibition')return;
+    const k=(ev.name+'|'+ev.location).toLowerCase();if(seen.has(k))return;seen.add(k);
+    const start=ev.span?ev.span.start:ev.date,end=ev.until&&ev.until>=start?ev.until:(ev.span?ev.span.end:'');
+    out.push({ev,start,end,last:end||addDays(start,EX_NO_END_DAYS),venue:venueOf(ev)});
+  });
+  return out;
+}
+function exhibitionsNow(){
+  const today=toDateStr(new Date()),ahead=addDays(today,EX_AHEAD_DAYS);
+  const list=exhibitionsAll().filter(x=>x.last>=today&&x.start<=ahead);
+  list.forEach(x=>{x.open=x.start<=today;});
+  /* open now: closing soonest first (no closing day last); then by opening day */
+  return list.sort((a,b)=>(a.open===b.open?0:a.open?-1:1)
+    ||(a.open?(a.end||'9999').localeCompare(b.end||'9999'):a.start.localeCompare(b.start))
+    ||a.ev.name.localeCompare(b.ev.name));
+}
+function exhibitionsOn(ds){return exhibitionsAll().filter(x=>x.start<=ds&&x.last>=ds);}
+function exStatus(x){
+  const t=toDateStr(new Date());
+  if(x.start>t){const n=daysBetween(t,x.start);return{cls:'opening',txt:n===1?'Opens tomorrow':'Opens '+dayLabel(x.start)};}
+  if(x.start===t)return{cls:'opening',txt:'Opens today'};
+  if(!x.end)return{cls:'open',txt:'Open now'};
+  const n=daysBetween(t,x.end);
+  if(n===0)return{cls:'last',txt:'Last day today'};
+  if(n===1)return{cls:'closing',txt:'Closes tomorrow'};
+  if(n<=7)return{cls:'closing',txt:`Closes in ${n} days`};
+  return{cls:'on',txt:'On until '+shortDate(x.end)};
+}
+function exRange(x){return x.end?`${shortDate(x.start)} – ${shortDate(x.end)}`:`From ${shortDate(x.start)} · closing date not announced`;}
+function exUrl(){return location.origin+location.pathname+'?p=exhibitions';}
+function renderExBanner(){
+  const box=document.getElementById('exBanner');if(!box)return;
+  const list=exhibitionsNow(),now=list.filter(x=>x.open).length,soon=list.length-now;
+  if(!list.length){box.innerHTML='';return;}
+  box.innerHTML=`<button class="ex-banner" onclick="openExhibitions()"><span class="ex-frames"><span></span><span></span><span></span></span><div style="min-width:0;"><div class="ex-banner-when">On view now</div><div class="ex-banner-title">Exhibitions</div><div class="ex-banner-sub">${now} open now${soon?` · ${soon} opening soon`:''} · museums, galleries &amp; pop-ups</div></div><span class="ex-banner-go">See them all →</span></button>`;
+}
+function openExhibitions(fromUrl){
+  exOpen=true;exFilter='all';
+  if(!fromUrl){try{history.pushState({p:'exhibitions'},'',exUrl());}catch(_){}}
+  renderExhibitions();
+  document.getElementById('exOverlay').classList.add('open');
+  document.getElementById('exBody').scrollTop=0;
+}
+function closeExhibitions(fromUrl){
+  if(!exOpen)return;
+  exOpen=false;
+  document.getElementById('exOverlay').classList.remove('open');
+  if(exMap){exMap.remove();exMap=null;}
+  if(!fromUrl){try{history.pushState({},'',location.pathname);}catch(_){}}
+}
+function shareExhibitions(){
+  const url=exUrl(),text='Exhibitions on view in Armenia: museums, galleries and pop-ups on one map';
+  if(navigator.share){navigator.share({title:'On view · yer.event',text,url}).catch(()=>{});return;}
+  const done=()=>toast('Link copied — paste it anywhere');
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(url).then(done).catch(()=>fallbackCopy(url,done));
+  else fallbackCopy(url,done);
+}
+function exFree(x){return accessOf({price:x.ev.price},{})==='free';}
+function exShown(x){
+  if(exFilter==='closing')return x.open&&x.end&&daysBetween(toDateStr(new Date()),x.end)<=7;
+  if(exFilter==='soon')return !x.open;
+  if(exFilter==='free')return exFree(x);
+  return true;
+}
+function renderExhibitions(){
+  const list=exhibitionsNow(),today=toDateStr(new Date());
+  /* one numbered pin per place, numbered in the order the shows are listed */
+  const pins=[];
+  list.forEach(x=>{
+    const key=x.venue?x.venue.id:'p:'+String(x.ev.location||x.ev.name).toLowerCase();
+    let p=pins.find(q=>q.key===key);
+    if(!p){p={key,n:pins.length+1,venue:x.venue,ev:x.ev,items:[]};pins.push(p);}
+    p.items.push(x);x.pin=p.n;
+  });
+  window._exPins=pins;window._exList=list;
+  const nNow=list.filter(x=>x.open).length,nSoon=list.length-nNow;
+  const nClosing=list.filter(x=>x.open&&x.end&&daysBetween(today,x.end)<=7).length,nFree=list.filter(exFree).length;
+  const frames=`<svg viewBox="0 0 230 170" fill="none" aria-hidden="true"><rect x="6" y="18" width="104" height="132" rx="3" fill="#1C0B12"/><rect x="14" y="26" width="88" height="116" fill="url(#exg1)"/><path d="M14 142 L50 92 L66 108 L84 80 L102 106 L102 142Z" fill="#1C0B12" opacity=".35"/><rect x="124" y="6" width="98" height="74" rx="3" fill="#1C0B12"/><rect x="131" y="13" width="84" height="60" fill="url(#exg2)"/><circle cx="173" cy="43" r="14" fill="#F4EADF" opacity=".85"/><rect x="124" y="92" width="64" height="72" rx="3" fill="#1C0B12"/><rect x="131" y="99" width="50" height="58" fill="#F04A5A"/><path d="M131 140c12-14 22-14 50-4v21h-50z" fill="#7A1E5C"/><defs><linearGradient id="exg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFB15C"/><stop offset=".55" stop-color="#F04A5A"/><stop offset="1" stop-color="#7A1E5C"/></linearGradient><linearGradient id="exg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7A1E5C"/><stop offset="1" stop-color="#F04A5A"/></linearGradient></defs></svg>`;
+  document.getElementById('exBody').innerHTML=`
+    <div class="ex-hero">${frames}
+      <div class="guide-inner" style="padding:0;position:relative;">
+        <div class="guide-hero-kicker">Exhibitions in Armenia · updated every day</div>
+        <h2>On view</h2>
+        <p>Museum shows, gallery exhibitions and pop-ups that are open now or opening soon. Tap one for the full details and the place.</p>
+        <div class="guide-stats">${[`${nNow} open now`,nSoon?`${nSoon} opening soon`:'',`${pins.length} place${pins.length!==1?'s':''}`,nFree?`${nFree} free`:''].filter(Boolean).map(s=>`<span class="guide-stat">${esc(s)}</span>`).join('')}</div>
+      </div>
+    </div>
+    <div class="guide-inner">
+      ${list.length?`<div class="guide-filter ex-filter" id="exFilter">
+        <button data-f="all" class="active">Everything</button>
+        ${nClosing?`<button data-f="closing">⏳ Closing this week (${nClosing})</button>`:''}
+        ${nSoon?`<button data-f="soon">✨ Opening soon (${nSoon})</button>`:''}
+        ${nFree?`<button data-f="free">🎁 Free (${nFree})</button>`:''}
+      </div>`:''}
+      <div class="guide-h"><span>Where they are</span></div>
+      <div id="exMap"></div><div class="guide-legend" id="exLegend"></div>
+      <div id="exSections"></div>
+      ${pins.length?`<div class="guide-h"><span>The places</span></div><div class="ex-venues" id="exVenues"></div>`:''}
+      <div class="guide-foot">Dates come from the venues' own posts. Opening hours change, so check the place before you go. Know a show we're missing? <a href="https://ig.me/m/yer.event" target="_blank" rel="noopener">Tell us</a>.</div>
+    </div>`;
+  const filt=document.getElementById('exFilter');
+  if(filt)filt.querySelectorAll('button').forEach(b=>b.onclick=()=>{
+    exFilter=b.dataset.f;filt.querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));
+    renderExSections();dimExPins();
+  });
+  renderExSections();
+  renderExVenues();
+  setTimeout(renderExMap,80);
+}
+function exCardHTML(x,i){
+  const st=exStatus(x),v=x.venue;
+  const where=v?`<b>${esc(v.kind)}</b>${esc(v.name)}`:esc(x.ev.location||'Place to be announced');
+  let run='';
+  if(x.open&&x.end){const total=Math.max(1,daysBetween(x.start,x.end)),done=Math.min(total,Math.max(0,daysBetween(x.start,toDateStr(new Date()))));run=`<div class="ex-run" title="How much of the run has passed"><i style="width:${Math.round(done/total*100)}%"></i></div>`;}
+  const blurb=String(x.ev.description||'').replace(/\s+/g,' ').trim().slice(0,220);
+  return `<div class="ex-card" data-i="${i}" id="ex-${i}"><div class="ex-card-top"><span class="guide-num">${x.pin}</span><div class="ex-venue">${where}</div><span class="ex-badge ${st.cls}">${esc(st.txt)}</span></div><div class="ex-title">${esc(x.ev.name)}</div><div class="ex-dates">${esc(exRange(x))}${exFree(x)?' <span class="acc-badge free">Free</span>':''}</div>${run}${blurb?`<div class="ex-blurb">${esc(blurb)}</div>`:''}</div>`;
+}
+function renderExSections(){
+  const list=window._exList||[],box=document.getElementById('exSections');if(!box)return;
+  const shown=list.map((x,i)=>({x,i})).filter(o=>exShown(o.x));
+  const now=shown.filter(o=>o.x.open),soon=shown.filter(o=>!o.x.open);
+  const sec=(title,items)=>items.length?`<div class="guide-h"><span>${title}</span></div><div class="ex-list">${items.map(o=>exCardHTML(o.x,o.i)).join('')}</div>`:'';
+  box.innerHTML=list.length
+    ?(sec(`Open now · ${now.length}`,now)+sec(`Opening soon · ${soon.length}`,soon)||`<div class="ex-empty" style="margin-top:20px;">Nothing matches that right now.</div>`)
+    :`<div class="ex-empty" style="margin-top:20px;">No exhibitions listed right now. New ones are added every day, so check back soon.</div>`;
+  box.querySelectorAll('.ex-card').forEach(c=>c.addEventListener('click',()=>openExDetail(list[+c.dataset.i].ev)));
+}
+function renderExVenues(){
+  const box=document.getElementById('exVenues');if(!box)return;
+  box.innerHTML=(window._exPins||[]).map(p=>{
+    const v=p.venue,name=v?v.name:(p.ev.location||'Place to be announced');
+    const q=v?`${v.name}, ${v.address}`:`${p.ev.location}${p.ev.city?', '+p.ev.city:''}, Armenia`;
+    return `<div class="venue-box" id="exv-${p.n}"><div class="stage-head"><span class="guide-num">${p.n}</span><div><div class="venue-kind">${esc(v?v.kind:'Venue')}</div><div class="venue-name" style="margin:0;">${esc(name)}</div></div></div>${v&&v.about?`<p>${esc(v.about)}</p>`:''}${v&&v.address?`<div class="venue-addr">📍 ${esc(v.address)}</div>`:''}<div class="venue-also"><b>On view here</b>${p.items.map((x,i)=>`<button data-pi="${i}">${esc(x.ev.name)}<small>${esc(exStatus(x).txt)}</small></button>`).join('')}</div><div class="stage-actions"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">📍 Directions &amp; opening hours</a><button data-map="1">Show on map</button></div></div>`;
+  }).join('');
+  (window._exPins||[]).forEach(p=>{
+    const card=document.getElementById('exv-'+p.n);if(!card)return;
+    card.querySelectorAll('[data-pi]').forEach(b=>b.addEventListener('click',()=>{const x=p.items[+b.dataset.pi];if(x)openExDetail(x.ev);}));
+    card.querySelector('[data-map]').addEventListener('click',()=>{
+      document.getElementById('exMap').scrollIntoView({behavior:'smooth',block:'center'});
+      const m=exMarkers[p.n];if(exMap&&m)exMap.setView(m.getLatLng(),17,{animate:true});
+    });
+  });
+}
+function renderExMap(){
+  if(!exOpen||!document.getElementById('exMap'))return;
+  if(exMap){exMap.remove();exMap=null;}
+  if(typeof L==='undefined')return;
+  exMap=L.map('exMap',{scrollWheelZoom:false,zoomSnap:0.25,center:[40.1830,44.5130],zoom:14});
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?key=cb1_3ttc_1_7980370ddda10f4b903a6478',{attribution:'© OpenStreetMap contributors © CARTO',maxZoom:19}).addTo(exMap);
+  exMarkers={};const pts=[];const map=exMap;
+  const legend=document.getElementById('exLegend');legend.innerHTML='';
+  const fit=()=>{if(map!==exMap||!pts.length)return;if(pts.length===1)map.setView(pts[0],15);else map.fitBounds(pts,{padding:[26,26],maxZoom:16});};
+  (window._exPins||[]).forEach(p=>{
+    const label=p.venue?p.venue.name:(p.ev.location||'');
+    const b=document.createElement('button');b.dataset.n=p.n;b.innerHTML=`<span class="guide-num">${p.n}</span>${esc(label)}`;
+    b.onclick=()=>{const m=exMarkers[p.n];if(m&&exMap)exMap.setView(m.getLatLng(),17,{animate:true});else focusExPlace(p.n);};
+    legend.appendChild(b);
+    const place=ll=>{
+      if(!ll||map!==exMap)return;
+      const icon=L.divIcon({className:'',html:`<div style="position:relative;"><div class="guide-pin ex-pin">${p.n}</div><div class="guide-pin-label">${esc(label)}</div></div>`,iconSize:[30,30],iconAnchor:[15,15]});
+      exMarkers[p.n]=L.marker(ll,{icon}).addTo(map).on('click',()=>focusExPlace(p.n));
+      if(!(p.venue&&p.venue.far))pts.push(ll);
+      fit();dimExPins();
+    };
+    if(p.venue&&p.venue.lat!=null)place([p.venue.lat,p.venue.lng]);
+    else geocode(p.ev).then(place).catch(()=>{});
+  });
+  const labels=()=>{const el=document.getElementById('exMap');if(el&&exMap)el.classList.toggle('labels-on',exMap.getZoom()>=16);};
+  map.on('zoomend',labels);labels();
+}
+/* with a filter on, places with nothing that matches fade back */
+function dimExPins(){
+  (window._exPins||[]).forEach(p=>{
+    const on=p.items.some(exShown);
+    const m=exMarkers[p.n];if(m)m.setOpacity(on?1:0.25);
+    const b=document.querySelector(`#exLegend button[data-n="${p.n}"]`);if(b)b.style.opacity=on?1:0.4;
+  });
+}
+function focusExPlace(n){
+  const list=window._exList||[];
+  const i=list.findIndex(x=>x.pin===n&&exShown(x));
+  const el=i>=0?document.getElementById('ex-'+i):document.getElementById('exv-'+n);
+  if(!el)return;
+  el.scrollIntoView({behavior:'smooth',block:'center'});
+  el.classList.add('flash');setTimeout(()=>el.classList.remove('flash'),1600);
+}
+function exGoToList(){
+  if(exOpen){closeDetail();return;}
+  closeDetail(true);closeDayModal();openExhibitions();
+}
+function openExDetail(ev){
+  document.getElementById('backBtn').style.display='inline-flex';
+  document.getElementById('detailOverlay').classList.add('open');
+  openDetail(ev);
+}
+/* the place an event is at, with the other shows on there: shown on every
+   event at a known venue, not only on exhibitions */
+function venueOthers(ev,v){return exhibitionsNow().filter(x=>x.venue&&x.venue.id===v.id&&x.ev.name!==ev.name);}
+function venueBoxHTML(ev){
+  const v=venueOf(ev);if(!v)return'';
+  const others=venueOthers(ev,v),q=`${v.name}, ${v.address}`;
+  return `<div class="venue-box"><div class="venue-kind">${esc(v.kind)}</div><div class="venue-name">${esc(v.name)}</div>${v.about?`<p>${esc(v.about)}</p>`:''}<div class="venue-addr">📍 ${esc(v.address)}</div><div class="stage-actions"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">📍 Directions &amp; opening hours</a></div>${others.length?`<div class="venue-also"><b>Also on view here</b>${others.map((x,i)=>`<button data-oi="${i}">${esc(x.ev.name)}<small>${esc(exStatus(x).txt)}</small></button>`).join('')}</div>`:''}</div>`;
+}
+function wireVenueBox(ev){
+  const v=venueOf(ev);if(!v)return;
+  const others=venueOthers(ev,v);
+  document.querySelectorAll('#detailBody .venue-also [data-oi]').forEach(b=>b.addEventListener('click',()=>{
+    const x=others[+b.dataset.oi];if(x){openDetail(x.ev);document.querySelector('#detailOverlay .modal-body').scrollTop=0;}
+  }));
+}
+/* the closing day and how long is left, under an exhibition's date */
+function exDetailRun(ev){
+  if(ev.type!=='exhibition')return'';
+  const x=exhibitionsAll().find(y=>y.ev.name===ev.name&&y.ev.location===ev.location);if(!x)return'';
+  x.open=x.start<=toDateStr(new Date());
+  const st=exStatus(x);
+  return `<div class="detail-run"><span class="ex-badge ${st.cls}">${esc(st.txt)}</span><button class="stage-actions" style="all:unset;cursor:pointer;font-size:0.78rem;font-weight:600;color:var(--apricot);" onclick="exGoToList()">🖼 All exhibitions on view →</button></div>`;
+}
+
 function renderList(){
   const section=document.getElementById('listSection');
   if(!filteredEvents.length){section.innerHTML=`<div class="state-box"><span class="icon">🔍</span><h3>No events found</h3><p>Try adjusting your filters.</p></div>`;return;}
@@ -1601,14 +1952,19 @@ document.getElementById('dayOverlay').addEventListener('click',e=>{if(e.target==
 document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;
   if(document.getElementById('detailOverlay').classList.contains('open')){closeDetail();return;}
   if(openGuideSlug){closeGuide();return;}
+  if(exOpen){closeExhibitions();return;}
   closeDayModal();});
+document.getElementById('exOverlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closeExhibitions();});
 
 /* guides first (a small file on the same site), then the events they bundle */
-loadGuides().then(()=>{
+Promise.all([loadGuides(),loadVenues()]).then(()=>{
   renderGuideBanner();
   const g=new URLSearchParams(location.search).get('g');
   if(g)openGuide(g,true);
-}).finally(()=>fetchEvents());
+}).finally(()=>fetchEvents().then(()=>{
+  /* yerevent.club/exhibitions lands here; the page needs the events first */
+  if(new URLSearchParams(location.search).get('p')==='exhibitions')openExhibitions(true);
+}));
 </script>
 <script>
 /* the top bar shows once the big logo is out of sight, and hides again when it's back */
